@@ -411,11 +411,8 @@ func overwriteConfig(targetConfig *config.RawConfig, patchConfig config.RawConfi
 	targetConfig.Profile.StoreSelected = false
 	targetConfig.GeoXUrl = patchConfig.GeoXUrl
 	targetConfig.GlobalUA = patchConfig.GlobalUA
-	//if targetConfig.DNS.Enable == false {
-	//	targetConfig.DNS = patchConfig.DNS
-	//}
 	genHosts(targetConfig.Hosts, patchConfig.Hosts)
-	if configParams.OverrideDns {
+	if configParams.OverrideDns || targetConfig.DNS.Enable == false {
 		targetConfig.DNS = patchConfig.DNS
 	}
 	//if runtime.GOOS == "android" {
@@ -541,7 +538,9 @@ func applyConfig() error {
 		patchSelectGroup()
 	}
 	updateListeners(cfg.General, cfg.Listeners)
-	hcCompatibleProvider(cfg.Providers)
+	if isRunning {
+		hcCompatibleProvider(cfg.Providers)
+	}
 	externalProviders = getExternalProvidersRaw()
 	return err
 }
