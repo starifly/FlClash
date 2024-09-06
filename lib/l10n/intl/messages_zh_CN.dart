@@ -271,6 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("通过WebDAV恢复数据"),
         "requests": MessageLookupByLibrary.simpleMessage("请求"),
         "requestsDesc": MessageLookupByLibrary.simpleMessage("查看最近请求记录"),
+        "resetDns": MessageLookupByLibrary.simpleMessage("Reset Dns"),
         "resources": MessageLookupByLibrary.simpleMessage("资源"),
         "resourcesDesc": MessageLookupByLibrary.simpleMessage("外部资源相关信息"),
         "respectRules": MessageLookupByLibrary.simpleMessage("遵守规则"),

@@ -50,12 +50,14 @@ class OpenDelegate extends Delegate {
   final String title;
   final double? extendPageWidth;
   final bool isBlur;
+  final bool isScaffold;
 
   const OpenDelegate({
     required this.title,
     required this.widget,
     this.extendPageWidth,
     this.isBlur = true,
+    this.isScaffold = false,
   });
 }
 
@@ -287,6 +289,7 @@ class ListItem<T> extends StatelessWidget {
                 title: openDelegate.title,
                 extendPageWidth: openDelegate.extendPageWidth,
                 isBlur: openDelegate.isBlur,
+                isScaffold: openDelegate.isScaffold,
               );
               return;
             }
