@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:fl_clash/clash/clash.dart';
+import 'package:fl_clash/common/common.dart';
 import 'package:fl_clash/common/other.dart';
 import 'package:fl_clash/enum/enum.dart';
 import 'package:fl_clash/models/models.dart';
@@ -51,8 +52,12 @@ delayTest(List<Proxy> proxies) async {
       ),
     );
     globalState.appController.setDelay(await clashCore.getDelay(proxyName));
-  });
-  await Future.wait(delayProxies);
+  }).toList();
+
+  final batchesDelayProxies = delayProxies.batch(100);
+  for (final batchDelayProxies in batchesDelayProxies) {
+    await Future.wait(batchDelayProxies);
+  }
   appController.appState.sortNum++;
 }
 
