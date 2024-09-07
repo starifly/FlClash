@@ -589,6 +589,7 @@ class Config extends ChangeNotifier {
       _isCloseConnections = config._isCloseConnections;
       _isCompatible = config._isCompatible;
       _autoLaunch = config._autoLaunch;
+      _dav = config._dav;
       _silentLaunch = config._silentLaunch;
       _autoRun = config._autoRun;
       _proxiesType = config._proxiesType;

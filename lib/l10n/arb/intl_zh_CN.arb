@@ -287,5 +287,6 @@
   "geoipCode": "Geoip代码",
   "ipcidr": "IP/掩码",
   "domain": "域名",
-  "resetDns": "Reset Dns"
+  "resetDns": "重置DNS",
+  "reset": "重置"
 }

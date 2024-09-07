@@ -346,6 +346,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requests": MessageLookupByLibrary.simpleMessage("Requests"),
         "requestsDesc": MessageLookupByLibrary.simpleMessage(
             "View recently request records"),
+        "reset": MessageLookupByLibrary.simpleMessage("Reset"),
         "resetDns": MessageLookupByLibrary.simpleMessage("Reset Dns"),
         "resources": MessageLookupByLibrary.simpleMessage("Resources"),
         "resourcesDesc": MessageLookupByLibrary.simpleMessage(

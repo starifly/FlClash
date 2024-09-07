@@ -287,5 +287,6 @@
   "geoipCode": "Geoip code",
   "ipcidr": "Ipcidr",
   "domain": "Domain",
-  "resetDns": "Reset Dns"
+  "resetDns": "Reset Dns",
+  "reset": "Reset"
 }

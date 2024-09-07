@@ -94,12 +94,14 @@ class InputDelegate extends Delegate {
   final String value;
   final String? suffixText;
   final Function(String? value) onChanged;
+  final String? resetValue;
 
   const InputDelegate({
     required this.title,
     required this.value,
     this.suffixText,
     required this.onChanged,
+    this.resetValue,
   });
 }
 
@@ -335,6 +337,7 @@ class ListItem<T> extends StatelessWidget {
               title: inputDelegate.title,
               value: inputDelegate.value,
               suffixText: inputDelegate.suffixText,
+              resetValue: inputDelegate.resetValue,
             ),
           );
           inputDelegate.onChanged(value);
