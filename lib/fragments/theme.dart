@@ -238,15 +238,67 @@ class _ThemeColorsBoxState extends State<ThemeColorsBox> {
                 ),
                 title: Text(appLocalizations.prueBlackMode),
                 delegate: SwitchDelegate(
+                    value: value,
+                    onChanged: (value) {
+                      globalState.appController.config.prueBlack = value;
+                    }),
+              );
+            },
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Selector<Config, bool>(
+            selector: (_, config) => config.fontSizeProps.custom,
+            builder: (_, value, ___) {
+              return ListItem.switchItem(
+                leading: Icon(
+                  Icons.format_size_sharp,
+                  color: context.colorScheme.primary,
+                ),
+                title: const Text("自定义字体大小"),
+                delegate: SwitchDelegate(
                   value: value,
-                  onChanged: (value){
-                    globalState.appController.config.prueBlack = value;
-                  }
+                  onChanged: (value) {
+                    globalState.appController.config.fontSizeProps =
+                        globalState.appController.config.fontSizeProps.copyWith(
+                      custom: value,
+                    );
+                  },
                 ),
               );
             },
           ),
-        )
+        ),
+        SizedBox(
+          height: 20,
+          child: Selector<Config, FontSizeProps>(
+            selector: (_, config) => config.fontSizeProps,
+            builder: (_, props, ___) {
+              return AbsorbPointer(
+                absorbing: !props.custom,
+                child: DisabledMask(
+                  status: !props.custom,
+                  child: Slider(
+                    value: props.scale,
+                    min: 0.8,
+                    max: 1.2,
+                    onChanged: (value) {
+                      globalState.appController.config.fontSizeProps =
+                          globalState.appController.config.fontSizeProps
+                              .copyWith(
+                            scale: value,
+                          );
+                    },
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        const SizedBox(
+          height: 64,
+        ),
       ],
     );
   }

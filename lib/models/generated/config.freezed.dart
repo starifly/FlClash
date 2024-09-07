@@ -1240,3 +1240,159 @@ abstract class _DesktopProps implements DesktopProps {
   _$$DesktopPropsImplCopyWith<_$DesktopPropsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+FontSizeProps _$FontSizePropsFromJson(Map<String, dynamic> json) {
+  return _FontSizeProps.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FontSizeProps {
+  bool get custom => throw _privateConstructorUsedError;
+  double get scale => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FontSizePropsCopyWith<FontSizeProps> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FontSizePropsCopyWith<$Res> {
+  factory $FontSizePropsCopyWith(
+          FontSizeProps value, $Res Function(FontSizeProps) then) =
+      _$FontSizePropsCopyWithImpl<$Res, FontSizeProps>;
+  @useResult
+  $Res call({bool custom, double scale});
+}
+
+/// @nodoc
+class _$FontSizePropsCopyWithImpl<$Res, $Val extends FontSizeProps>
+    implements $FontSizePropsCopyWith<$Res> {
+  _$FontSizePropsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? custom = null,
+    Object? scale = null,
+  }) {
+    return _then(_value.copyWith(
+      custom: null == custom
+          ? _value.custom
+          : custom // ignore: cast_nullable_to_non_nullable
+              as bool,
+      scale: null == scale
+          ? _value.scale
+          : scale // ignore: cast_nullable_to_non_nullable
+              as double,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FontSizePropsImplCopyWith<$Res>
+    implements $FontSizePropsCopyWith<$Res> {
+  factory _$$FontSizePropsImplCopyWith(
+          _$FontSizePropsImpl value, $Res Function(_$FontSizePropsImpl) then) =
+      __$$FontSizePropsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool custom, double scale});
+}
+
+/// @nodoc
+class __$$FontSizePropsImplCopyWithImpl<$Res>
+    extends _$FontSizePropsCopyWithImpl<$Res, _$FontSizePropsImpl>
+    implements _$$FontSizePropsImplCopyWith<$Res> {
+  __$$FontSizePropsImplCopyWithImpl(
+      _$FontSizePropsImpl _value, $Res Function(_$FontSizePropsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? custom = null,
+    Object? scale = null,
+  }) {
+    return _then(_$FontSizePropsImpl(
+      custom: null == custom
+          ? _value.custom
+          : custom // ignore: cast_nullable_to_non_nullable
+              as bool,
+      scale: null == scale
+          ? _value.scale
+          : scale // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FontSizePropsImpl implements _FontSizeProps {
+  const _$FontSizePropsImpl(
+      {this.custom = false, this.scale = defaultCustomFontSizeScale});
+
+  factory _$FontSizePropsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FontSizePropsImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final bool custom;
+  @override
+  @JsonKey()
+  final double scale;
+
+  @override
+  String toString() {
+    return 'FontSizeProps(custom: $custom, scale: $scale)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FontSizePropsImpl &&
+            (identical(other.custom, custom) || other.custom == custom) &&
+            (identical(other.scale, scale) || other.scale == scale));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, custom, scale);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FontSizePropsImplCopyWith<_$FontSizePropsImpl> get copyWith =>
+      __$$FontSizePropsImplCopyWithImpl<_$FontSizePropsImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FontSizePropsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FontSizeProps implements FontSizeProps {
+  const factory _FontSizeProps({final bool custom, final double scale}) =
+      _$FontSizePropsImpl;
+
+  factory _FontSizeProps.fromJson(Map<String, dynamic> json) =
+      _$FontSizePropsImpl.fromJson;
+
+  @override
+  bool get custom;
+  @override
+  double get scale;
+  @override
+  @JsonKey(ignore: true)
+  _$$FontSizePropsImplCopyWith<_$FontSizePropsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

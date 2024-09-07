@@ -21,7 +21,6 @@ class AppController {
   late AppState appState;
   late Config config;
   late ClashConfig clashConfig;
-  late Measure measure;
   late Function updateClashConfigDebounce;
   late Function updateGroupDebounce;
   late Function addCheckIpNumDebounce;
@@ -43,7 +42,6 @@ class AppController {
     updateGroupDebounce = debounce(() async {
       await updateGroups();
     });
-    measure = Measure.of(context);
   }
 
   updateStatus(bool isStart) async {

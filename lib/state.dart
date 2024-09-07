@@ -27,6 +27,7 @@ class GlobalState {
   late PackageInfo packageInfo;
   Function? updateCurrentDelayDebounce;
   PageController? pageController;
+  late Measure measure;
   DateTime? startTime;
   final navigatorKey = GlobalKey<NavigatorState>();
   late AppController appController;

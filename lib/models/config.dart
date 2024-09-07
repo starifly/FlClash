@@ -95,6 +95,21 @@ class DesktopProps with _$DesktopProps {
       json == null ? const DesktopProps() : _$DesktopPropsFromJson(json);
 }
 
+const defaultCustomFontSizeScale = 1.0;
+
+const defaultFontSizeProps = FontSizeProps();
+
+@freezed
+class FontSizeProps with _$FontSizeProps {
+  const factory FontSizeProps({
+    @Default(false) bool custom,
+    @Default(defaultCustomFontSizeScale) double scale,
+  }) = _FontSizeProps;
+
+  factory FontSizeProps.fromJson(Map<String, Object?>? json) =>
+      json == null ? defaultFontSizeProps : _$FontSizePropsFromJson(json);
+}
+
 @JsonSerializable()
 class Config extends ChangeNotifier {
   List<Profile> _profiles;
@@ -124,6 +139,7 @@ class Config extends ChangeNotifier {
   bool _onlyProxy;
   bool _prueBlack;
   VpnProps _vpnProps;
+  FontSizeProps _fontSizeProps;
   DesktopProps _desktopProps;
   bool _showLabel;
   bool _overrideDns;
@@ -155,7 +171,8 @@ class Config extends ChangeNotifier {
         _vpnProps = const VpnProps(),
         _desktopProps = const DesktopProps(),
         _showLabel = false,
-        _overrideDns = false;
+        _overrideDns = false,
+        _fontSizeProps = const FontSizeProps();
 
   deleteProfileById(String id) {
     _profiles = profiles.where((element) => element.id != id).toList();
@@ -547,6 +564,15 @@ class Config extends ChangeNotifier {
   set desktopProps(DesktopProps value) {
     if (_desktopProps != value) {
       _desktopProps = value;
+      notifyListeners();
+    }
+  }
+
+  FontSizeProps get fontSizeProps => _fontSizeProps;
+
+  set fontSizeProps(FontSizeProps value) {
+    if (_fontSizeProps != value) {
+      _fontSizeProps = value;
       notifyListeners();
     }
   }
